@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box }
+html, body, #root { height: 100% }
+
+:root {
+  --bg-start: 245, 249, 255;
+  --bg-end: 230, 241, 255;
+  --text: 17, 24, 39;
+  --primary: 37, 99, 235;
+  --secondary: 16, 185, 129;
+  --surface: 255, 255, 255;
+}
+[data-theme="dark"] {
+  --bg-start: 13, 18, 28;
+  --bg-end: 23, 32, 46;
+  --text: 229, 231, 235;
+  --primary: 59, 130, 246;
+  --secondary: 52, 211, 153;
+  --surface: 31, 41, 55;
+}
+
+.bg-app {
+  background-image: radial-gradient(1200px 400px at 10% 0%, rgba(56,189,248,0.15), transparent),
+    linear-gradient(180deg, rgba(var(--bg-start),1) 0%, rgba(var(--bg-end),1) 100%);
+}
+.text-app { color: rgb(var(--text)) }
+
+.btn {
+  @apply px-4 py-2 rounded-md transition font-medium;
+  background: rgb(var(--primary));
+  color: white;
+  box-shadow: 0 8px 20px rgba(var(--primary), 0.25);
+}
+.btn:hover { filter: brightness(1.05) }
+.btn-secondary {
+  @apply px-3 py-2 rounded-md transition font-medium border;
+  background: rgba(var(--surface), 0.6);
+  border-color: rgba(var(--text), 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.card {
+  @apply rounded-2xl p-5;
+  background: rgba(var(--surface), 0.55);
+  box-shadow: 0 8px 24px rgba(2, 8, 20, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.glass {
+  background: rgba(var(--surface), 0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+}
+
+.heading-1 { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 600 }
+.heading-2 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 600 }
+.muted { color: rgba(var(--text), 0.7) }
